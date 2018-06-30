@@ -2,7 +2,7 @@
 
 Integrantes
     Julieth Viviana Cobos Guerrero
-    Wilson Fernando Arguello Campos
+    Wilson Fernando Argüello Campos
     Andrés Felipe Vega Chacón
 
 Problema:
@@ -10,7 +10,7 @@ Problema:
 
 Localidad
     Engativá
-        
+
 Nombre de la App
     RECICLANDO…ANDO (Provisional)
 
