@@ -32,4 +32,3 @@ distrito).
 *Cooperativas de reciclaje.
 *Colegios y universidades.
 *Habitantes de la comunidad
-bb.
