@@ -4,4 +4,5 @@
 *Alcaldía local.
 *Cooperativas de reciclaje.
 *Colegios y universidades.
-*Habitantes de la comunidad.
+*Habitantes de la comunidad
+bb.
