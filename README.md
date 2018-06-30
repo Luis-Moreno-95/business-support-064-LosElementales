@@ -1,13 +1,4 @@
-# business-support-064-LosElementales
-
-¿Con quién?
-*Alcaldía local.
-*Cooperativas de reciclaje.
-*Colegios y universidades.
-*Habitantes de la comunidad
-bb.
 # business-support-064-LosElemental
-
 Integrantes
     Julieth Viviana Cobos Guerrero
     Wilson Fernando Argüello Campos
@@ -34,3 +25,11 @@ genera la inadecuada separación de los residuos y por otra parte generar un ben
 de incentivos (redención de puntos para ingresos a lugares culturales y recreativos del
 distrito).
 
+# business-support-064-LosElementales
+
+¿Con quién?
+*Alcaldía local.
+*Cooperativas de reciclaje.
+*Colegios y universidades.
+*Habitantes de la comunidad
+bb.
