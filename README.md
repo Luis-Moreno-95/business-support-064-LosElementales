@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # business-support-064-LosElemental
 Integrantes
     Julieth Viviana Cobos Guerrero
@@ -33,6 +31,4 @@ distrito).
 *Alcaldía local.
 *Cooperativas de reciclaje.
 *Colegios y universidades.
-*Habitantes de la comunidad
-bb.
->>>>>>> 52b4c78f26e3bd173db9d3b2c2e21f3a32cbfa21
+*Habitantes de la comunidad.
