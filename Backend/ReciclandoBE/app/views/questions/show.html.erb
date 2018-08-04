@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion pregunta:</strong>
+  <%= @question.descripcion_pregunta %>
+</p>
+
+<p>
+  <strong>Peso pregunta:</strong>
+  <%= @question.peso_pregunta %>
+</p>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>
