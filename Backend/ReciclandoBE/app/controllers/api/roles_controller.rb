@@ -7,7 +7,8 @@ class Api::RolesController < ApplicationController
         end
        
         def show
-            
+          @role = Role.find(params[:id])
+          render json: @role
         end
        
         def create
