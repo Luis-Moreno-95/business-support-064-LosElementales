@@ -10,13 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_30_233941) do
+ActiveRecord::Schema.define(version: 2018_07_30_235444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "clasifications", force: :cascade do |t|
     t.string "descripcion_clasificacion"
+  end
+
+  create_table "clasifications_contents", id: false, force: :cascade do |t|
+    t.bigint "content_id", null: false
+    t.bigint "clasification_id", null: false
+  end
+
+  create_table "clasifications_questions", id: false, force: :cascade do |t|
+    t.bigint "clasification_id", null: false
+    t.bigint "question_id", null: false
   end
 
   create_table "contents", force: :cascade do |t|
@@ -41,6 +58,11 @@ ActiveRecord::Schema.define(version: 2018_07_30_233941) do
   create_table "roles", force: :cascade do |t|
     t.string "nombre_rol"
     t.string "descripcion_rol"
+  end
+
+  create_table "roles_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "role_id", null: false
   end
 
   create_table "statuses", force: :cascade do |t|
