@@ -1,0 +1,22 @@
+<%= form_with(model: clasification, local: true) do |form| %>
+  <% if clasification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clasification.errors.count, "error") %> prohibited this clasification from being saved:</h2>
+
+      <ul>
+      <% clasification.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :descripcion_clasificacion %>
+    <%= form.text_field :descripcion_clasificacion %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

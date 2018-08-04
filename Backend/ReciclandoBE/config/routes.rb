@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :clasifications
+  root 'clasifications#index'
+ 
+  namespace :api, defaults: {format: 'json'} do
+    resources :clasifications, only: [:index, :create, :destroy, :update, :show]
+  end 
+
   resources :questions
     root 'questions#index'
-    
+
   namespace :api, defaults: {format: 'json'} do
     resources :questions, only: [:index, :create, :destroy, :update, :show]
   end
@@ -13,4 +19,5 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     resources :roles, only: [:index, :create, :destroy, :update, :show]
   end
+
 end
