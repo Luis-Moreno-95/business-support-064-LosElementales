@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contents
   resources :clasifications
   root 'clasifications#index'
  
@@ -18,6 +19,13 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     resources :roles, only: [:index, :create, :destroy, :update, :show]
+  end
+
+  resources :contents
+    root 'contents#index'
+
+  namespace :api, defaults: {format: 'json'} do
+    resources :contents, only: [:index, :create, :destroy, :update, :show]
   end
 
 end
