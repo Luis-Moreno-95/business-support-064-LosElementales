@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_contenido: MyString
+  descripcion_contenido: MyString
+  ruta_multimedia_contenido: MyString
+
+two:
+  nombre_contenido: MyString
+  descripcion_contenido: MyString
+  ruta_multimedia_contenido: MyString
