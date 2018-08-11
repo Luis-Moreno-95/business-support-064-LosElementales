@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre usuario</th>
+      <th>Apellidos ususario</th>
+      <th>Fecha nacimiento usuario</th>
+      <th>Clave usuario</th>
+      <th>Puntaje usuario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.nombre_usuario %></td>
+        <td><%= user.apellidos_ususario %></td>
+        <td><%= user.fecha_nacimiento_usuario %></td>
+        <td><%= user.clave_usuario %></td>
+        <td><%= user.puntaje_usuario %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>

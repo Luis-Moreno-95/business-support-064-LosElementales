@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :statuses
   resources :contents
   resources :clasifications
   root 'clasifications#index'
@@ -27,5 +29,19 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     resources :contents, only: [:index, :create, :destroy, :update, :show]
   end
+  
+  resources :statuses
+    root 'statuses#index'
+
+  namespace :api, defaults: {format: 'json'} do
+    resources :statuses, only: [:index, :create, :destroy, :update, :show]
+  end
+
+  resources :users
+    root 'users#index'
+
+  namespace :api, defaults: {format: 'json'} do
+    resources :users, only: [:index, :create, :destroy, :update, :show]
+  end  
 
 end
