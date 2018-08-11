@@ -1,0 +1,183 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Reciclando",
+		"_postman_id": "a2541005-083c-7268-213b-b87d4bedbc4a",
+		"description": "Colección de objetos de la aplicación de Fedesoft",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Statuses",
+			"description": "Estados Usuario",
+			"item": [
+				{
+					"name": "Actualizar Estados",
+					"request": {
+						"url": "http://localhost:3000/api/statuses/9",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    { \n    \t\"descripcion_estado\": \"Bloqueado\"\n    }"
+						},
+						"description": "Actualizar Estados"
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Estados",
+					"request": {
+						"url": "http://localhost:3000/api/statuses/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    { \n    \t\"descripcion_estado\": \"Bloqueado\"\n    }"
+						},
+						"description": "Crear Estados"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Estados",
+					"request": {
+						"url": "http://localhost:3000/api/statuses/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    { \n    \t\"descripcion_estado\": \"Bloqueado\"\n    }"
+						},
+						"description": "Obtener Estados"
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Estado",
+					"request": {
+						"url": "http://localhost:3000/api/statuses/2",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Borrar Estado"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"description": "Usuarios",
+			"item": [
+				{
+					"name": "Listar Usuarios",
+					"request": {
+						"url": "http://localhost:3000/api/users/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"nombre_usuario\": \"Juan\",\n        \"apellidos_ususario\": \"Pérez\",\n        \"fecha_nacimiento_usuario\": \"2014-08-11\",\n        \"clave_usuario\": \"Fuck\",\n        \"puntaje_usuario\": 1,\n        \"created_at\": \"2018-08-11T01:33:42.700Z\",\n        \"updated_at\": \"2018-08-11T01:33:42.700Z\",\n        \"status_id\": null\n    }"
+						},
+						"description": "Listar Usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "Crear usuario",
+					"request": {
+						"url": "http://localhost:3000/api/users/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre_usuario\": \"Felipe\",\n    \"apellidos_ususario\": \"Vega\",\n    \"fecha_nacimiento_usuario\": \"2014-08-11\",\n    \"clave_usuario\": \"Fuck\",\n    \"puntaje_usuario\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Usuario",
+					"request": {
+						"url": "http://localhost:3000/api/users/2",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Borrar Usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Usuario",
+					"request": {
+						"url": "http://localhost:3000/api/users/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    { \n\t\t\"nombre_usuario\": \"loco\",\n    \t\"apellidos_ususario\": \"Vega\",\n    \t\"fecha_nacimiento_usuario\": \"2014-08-11\",\n\t\t\"clave_usuario\": \"Fuck\",\n    \t\"puntaje_usuario\": 1\n    }"
+						},
+						"description": "Actualizar Usuario"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

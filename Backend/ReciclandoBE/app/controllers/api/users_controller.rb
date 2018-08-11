@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
     protect_from_forgery prepend:true
-    before_action :set_status, only: [:show, :update, :destroy]
+    before_action :set_user, only: [:show, :update, :destroy]
        
     def index
       @users = User.all
@@ -40,7 +40,7 @@ class Api::UsersController < ApplicationController
         @user = User.find(params[:id])
       end
    
-      def status_params
-        params.require(:user).permit(:nombre_usuario, :apellidos_ususario, :fecha_nacimiento_usuario, :clave_usuario, :puntaje_usuario, :timestamps)
+      def user_params
+        params.require(:user).permit(:nombre_usuario, :apellidos_ususario, :fecha_nacimiento_usuario, :clave_usuario, :puntaje_usuario)
       end
 end
