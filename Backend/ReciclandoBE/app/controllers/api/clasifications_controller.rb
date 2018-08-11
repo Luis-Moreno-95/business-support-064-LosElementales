@@ -1,4 +1,5 @@
 class Api::ClasificationsController < ApplicationController
+    protect_from_forgery prepend: true
     before_action :set_clasification, only: [:show, :update, :destroy]
  
     def index
