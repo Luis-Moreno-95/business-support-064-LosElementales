@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "8dd78d60-2feb-4d57-afa2-5bd2d0f40e5a",
+		"name": "Reciclando",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "5a2acdac-31f9-4ce4-a9dc-4fd70b561e73",
+			"name": "Roles",
+			"item": [
+				{
+					"_postman_id": "83151372-2aba-4591-9e66-df12bd68de03",
+					"name": "ActualizaciónRoles",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre_rol\": \"Desarrollo\",\n\t\"descripcion_rol\": \"Grupo desarrollo\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/roles/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"roles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "259474db-fb4a-490e-86b1-d38efa63884a",
+					"name": "CrearRoles",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre_rol\": \"Administrador\",\n\t\"descripcion_rol\": \"Administrador desarrollo\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "91ed05af-6b42-40a0-beb1-86d313813274",
+					"name": "ListarRoles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 1,\n\t\"nombre_rol\": \"Desarrollo\",\n\t\"descripcion_rol\": \"Grupo de desarrollo\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "07dd8ffb-ec1f-4dd0-9014-fb10d94c5ef5",
+					"name": "BorrarRoles",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/roles/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"roles",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "2697546b-d65d-4249-86f6-dc4e75efe86d",
+			"name": "Questions",
+			"item": [
+				{
+					"_postman_id": "a079e863-bff0-4a0a-97f7-44cd704f62c6",
+					"name": "ListarQuestions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 1,\n\t\"nombre_rol\": \"Desarrollo\",\n\t\"descripcion_rol\": \"Grupo de desarrollo\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/questions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "949c858b-b356-4bd4-b102-fe15a9bcf6b8",
+					"name": "CrearQuestions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"descripcion_pregunta\": \"Pregunta 2\",\n\t\"peso_pregunta\": 10\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/questions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "60109c50-1d28-4c22-a51e-2c7003c9de6e",
+					"name": "ActualizaciónQuestions",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"descripcion_pregunta\": \"Pregunta 2\",\n\t\"peso_pregunta\": 20\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/questions/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"questions",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "4e3abe96-043c-4ffe-b7e9-4cdda86f3da8",
+					"name": "BorrarQuestions",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/questions/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"questions",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
