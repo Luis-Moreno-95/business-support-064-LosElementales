@@ -1,5 +1,5 @@
 class Api::StatusesController < ApplicationController
-    protect_from_forgery prepend: true
+  protect_from_forgery prepend:true
     before_action :set_status, only: [:show, :update, :destroy]
        
     def index
@@ -11,10 +11,11 @@ class Api::StatusesController < ApplicationController
       @status = Status.find(params[:id])
       render json: @status
     end
+
    
     def create
-      @status = Status.new(status_params)
-   
+      puts "Test"
+      @status = Status.new(status_params)      
       if @status.save
         render json: @status, status: :created
       else
@@ -41,6 +42,6 @@ class Api::StatusesController < ApplicationController
       end
    
       def status_params
-        params.require(:status).permit(:descripcion_status)
+        params.require(:status).permit(:descripcion_estado)
       end
 end
