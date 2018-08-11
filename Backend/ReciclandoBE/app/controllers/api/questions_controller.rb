@@ -1,4 +1,5 @@
 class Api::QuestionsController < ApplicationController
+    protect_from_forgery prepend: true
     before_action :set_question, only: [:show, :update, :destroy]
        
         def index

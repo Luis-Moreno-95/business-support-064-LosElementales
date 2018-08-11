@@ -1,4 +1,5 @@
 class Api::ContentsController < ApplicationController
+    protect_from_forgery prepend: true
     before_action :set_Content, only: [:show, :update, :destroy]
        
         def index
@@ -12,7 +13,7 @@ class Api::ContentsController < ApplicationController
         end
        
         def create
-          @content = Content.new(Content_params)
+          @content = Content.new(content_params)
        
           if @content.save
             render json: @content, status: :created
@@ -22,7 +23,7 @@ class Api::ContentsController < ApplicationController
         end
        
         def update
-          if @content.update(Content_params)
+          if @content.update(content_params)
             render json: @content, status: :ok
           else
             render json: @content.errors, status: :unprocessable_entity
@@ -39,7 +40,7 @@ class Api::ContentsController < ApplicationController
             @content = Content.find(params[:id])
           end
        
-          def Content_params
-            params.require(:Content).permit(:nombre_contenido, :descripcion_contenido, :ruta_multimedia_contenido)
+          def content_params
+            params.require(:content).permit(:nombre_contenido, :descripcion_contenido, :ruta_multimedia_contenido)
           end
 end
