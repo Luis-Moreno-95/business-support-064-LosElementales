@@ -1,4 +1,5 @@
 class Api::RolesController < ApplicationController
+    protect_from_forgery prepend: true
     before_action :set_role, only: [:show, :update, :destroy]
        
         def index

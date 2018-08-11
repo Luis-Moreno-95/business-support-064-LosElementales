@@ -1,4 +1,5 @@
 class StatusesController < ApplicationController
+  protect_from_forgery prepend: true
   before_action :set_status, only: [:show, :edit, :update, :destroy]
 
   # GET /statuses
