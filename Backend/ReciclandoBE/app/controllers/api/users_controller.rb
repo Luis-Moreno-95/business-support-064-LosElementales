@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+    protect_from_forgery prepend: true 
     before_action :set_status, only: [:show, :update, :destroy]
        
     def index
