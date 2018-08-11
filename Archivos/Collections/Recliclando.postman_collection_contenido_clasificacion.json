@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "4b30b74f-0ebf-4531-bc05-85e24bb996fa",
+		"name": "Recliclando",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "d4a520b4-939f-4621-9327-81bb9f77660f",
+			"name": "Contents",
+			"item": [
+				{
+					"_postman_id": "066c7238-878c-4043-9cf7-9f38648aeb1e",
+					"name": "ConsultarContenido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/contents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "166608f4-f322-48ba-8888-a4242d4c8a2b",
+					"name": "CrearContenido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre_contenido\":\"prueba3\",\n\t\"descripcion_contenido\":\"prueba3\",\n\t\"ruta_multimedia_contenido\":\"prueba3\"\n\t\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/contents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents"
+							]
+						},
+						"description": "Creación de contenido"
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "c8c019c6-3abd-47de-9e7f-5bafff9bce4b",
+					"name": "EliminarContenido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/contents/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "56a58c5d-84be-41e3-88be-b75d3e9723c5",
+					"name": "ActualizaContenido",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"nombre_contenido\":\"prueba4\",\n\t\"descripcion_contenido\":\"prueba4\",\n\t\"ruta_multimedia_contenido\":\"prueba4\"\n\t\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/contents/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "7e15c20e-3453-4758-b7de-f4f87b8cb073",
+			"name": "Clasifications",
+			"item": [
+				{
+					"_postman_id": "7f379672-23ae-492b-91c1-a8f1f8e3d82f",
+					"name": "ConsultarClasificacion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/clasifications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clasifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "3b386113-7cd3-4339-b0b5-8529b5e1670d",
+					"name": "CrearClasificacion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"descripcion_clasificacion\": \"Prueba3\"\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/clasifications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clasifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "318a2fa6-f1c7-448c-bb2c-5b959ed22c0f",
+					"name": "EliminarClasificacion",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"descripcion_clasificacion\":\"Prueba2\"\n\t\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/clasifications/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clasifications",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "f1d4ff6c-4a1c-4ccf-a80e-d1aca00a23a6",
+					"name": "ActualizarClasificacion",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"id\": 2,\n       \"descripcion_clasificacion\": \"Prueba2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/clasifications/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clasifications",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
