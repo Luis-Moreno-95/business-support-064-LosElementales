@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Apellidos ususario:</strong>
-  <%= @user.apellidos_ususario %>
+  <strong>Apellidos usuario:</strong>
+  <%= @user.apellidos_usuario %>
 </p>
 
 <p>
@@ -16,13 +16,8 @@
 </p>
 
 <p>
-  <strong>Clave usuario:</strong>
-  <%= @user.clave_usuario %>
-</p>
-
-<p>
-  <strong>Puntaje usuario:</strong>
-  <%= @user.puntaje_usuario %>
+  <strong>Password digest:</strong>
+  <%= @user.password_digest %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

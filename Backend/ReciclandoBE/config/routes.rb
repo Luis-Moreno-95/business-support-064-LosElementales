@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  post 'user_token' => 'user_token#create'
   resources :users
   resources :statuses
   resources :contents
   resources :clasifications
+  
   root 'clasifications#index'
  
   namespace :api, defaults: {format: 'json'} do

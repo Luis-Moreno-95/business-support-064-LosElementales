@@ -24,8 +24,17 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Esta gema nos permite habilita "has_secure_password" en Active Record
+gem 'bcrypt', '~> 3.1.7'
+
+# Usamos Rack CORS para habiliar Cross-Origin Resource Sharing (CORS)
+gem 'rack-cors'
+
+# Usamos knock para autenticar con el JWT
+gem 'knock'
+
+# Usamos Active Model Serializers para definir las respuestas del API en JSON
+gem 'active_model_serializers', '~> 0.10.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  protect_from_forgery prepend: true
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+    protect_from_forgery prepend:true
+    before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -70,7 +70,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      puts @user
-      params.require(:user).permit(:nombre_usuario, :apellidos_ususario, :fecha_nacimiento_usuario, :clave_usuario, :puntaje_usuario)
+      params.require(:user).permit(:nombre_usuario, :apellidos_usuario, :fecha_nacimiento_usuario, :email, :password, :password_confirmation)
     end
 end

@@ -2,14 +2,12 @@
 
 one:
   nombre_usuario: MyString
-  apellidos_ususario: MyString
-  fecha_nacimiento_usuario: 2018-08-10
-  clave_usuario: MyString
-  puntaje_usuario: 1
+  apellidos_usuario: MyString
+  fecha_nacimiento_usuario: 2018-08-17
+  password_digest: MyString
 
 two:
   nombre_usuario: MyString
-  apellidos_ususario: MyString
-  fecha_nacimiento_usuario: 2018-08-10
-  clave_usuario: MyString
-  puntaje_usuario: 1
+  apellidos_usuario: MyString
+  fecha_nacimiento_usuario: 2018-08-17
+  password_digest: MyString
