@@ -1,64 +1,41 @@
 class ClasificationsController < ApplicationController
-  before_action :set_clasification, only: [:show, :edit, :update, :destroy]
+  before_action :set_clasification, only: [:show, :update, :destroy]
 
   # GET /clasifications
-  # GET /clasifications.json
   def index
     @clasifications = Clasification.all
+
+    render json: @clasifications
   end
 
   # GET /clasifications/1
-  # GET /clasifications/1.json
   def show
-  end
-
-  # GET /clasifications/new
-  def new
-    @clasification = Clasification.new
-  end
-
-  # GET /clasifications/1/edit
-  def edit
+    render json: @clasification
   end
 
   # POST /clasifications
-  # POST /clasifications.json
   def create
     @clasification = Clasification.new(clasification_params)
 
-    respond_to do |format|
-      if @clasification.save
-        format.html { redirect_to @clasification, notice: 'Clasification was successfully created.' }
-        format.json { render :show, status: :created, location: @clasification }
-      else
-        format.html { render :new }
-        format.json { render json: @clasification.errors, status: :unprocessable_entity }
-      end
+    if @clasification.save
+      render json: @clasification, status: :created, location: @clasification
+    else
+      render json: @clasification.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /clasifications/1
-  # PATCH/PUT /clasifications/1.json
   def update
-    respond_to do |format|
-      if @clasification.update(clasification_params)
-        format.html { redirect_to @clasification, notice: 'Clasification was successfully updated.' }
-        format.json { render :show, status: :ok, location: @clasification }
-      else
-        format.html { render :edit }
-        format.json { render json: @clasification.errors, status: :unprocessable_entity }
-      end
+    if @clasification.update(clasification_params)
+      render json: @clasification
+    else
+      render json: @clasification.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /clasifications/1
-  # DELETE /clasifications/1.json
   def destroy
     @clasification.destroy
-    respond_to do |format|
-      format.html { redirect_to clasifications_url, notice: 'Clasification was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -67,7 +44,7 @@ class ClasificationsController < ApplicationController
       @clasification = Clasification.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Only allow a trusted parameter "white list" through.
     def clasification_params
       params.require(:clasification).permit(:descripcion_clasificacion)
     end

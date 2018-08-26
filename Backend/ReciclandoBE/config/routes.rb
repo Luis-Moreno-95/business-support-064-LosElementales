@@ -1,47 +1,8 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :statuses
-  resources :contents
   resources :clasifications
-  root 'clasifications#index'
- 
-  namespace :api, defaults: {format: 'json'} do
-    resources :clasifications, only: [:index, :create, :destroy, :update, :show]
-  end 
-
-  resources :questions
-    root 'questions#index'
-
-  namespace :api, defaults: {format: 'json'} do
-    resources :questions, only: [:index, :create, :destroy, :update, :show]
-  end
-
   resources :roles
-    root 'roles#index'
-
-  namespace :api, defaults: {format: 'json'} do
-    resources :roles, only: [:index, :create, :destroy, :update, :show]
-  end
-
-  resources :contents
-    root 'contents#index'
-
-  namespace :api, defaults: {format: 'json'} do
-    resources :contents, only: [:index, :create, :destroy, :update, :show]
-  end
-  
   resources :statuses
-    root 'statuses#index'
-
-  namespace :api, defaults: {format: 'json'} do
-    resources :statuses, only: [:index, :create, :destroy, :update, :show]
-  end
-
+  post 'user_token' => 'user_token#create'
   resources :users
-    root 'users#index'
-
-  namespace :api, defaults: {format: 'json'} do
-    resources :users, only: [:index, :create, :destroy, :update, :show]
-  end  
-
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

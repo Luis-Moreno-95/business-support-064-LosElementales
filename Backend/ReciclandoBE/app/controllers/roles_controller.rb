@@ -1,65 +1,41 @@
 class RolesController < ApplicationController
-  protect_from_forgery prepend: true
-  before_action :set_role, only: [:show, :edit, :update, :destroy]
+  before_action :set_role, only: [:show, :update, :destroy]
 
   # GET /roles
-  # GET /roles.json
   def index
     @roles = Role.all
+
+    render json: @roles
   end
 
   # GET /roles/1
-  # GET /roles/1.json
   def show
-  end
-
-  # GET /roles/new
-  def new
-    @role = Role.new
-  end
-
-  # GET /roles/1/edit
-  def edit
+    render json: @role
   end
 
   # POST /roles
-  # POST /roles.json
   def create
     @role = Role.new(role_params)
 
-    respond_to do |format|
-      if @role.save
-        format.html { redirect_to @role, notice: 'Role was successfully created.' }
-        format.json { render :show, status: :created, location: @role }
-      else
-        format.html { render :new }
-        format.json { render json: @role.errors, status: :unprocessable_entity }
-      end
+    if @role.save
+      render json: @role, status: :created, location: @role
+    else
+      render json: @role.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /roles/1
-  # PATCH/PUT /roles/1.json
   def update
-    respond_to do |format|
-      if @role.update(role_params)
-        format.html { redirect_to @role, notice: 'Role was successfully updated.' }
-        format.json { render :show, status: :ok, location: @role }
-      else
-        format.html { render :edit }
-        format.json { render json: @role.errors, status: :unprocessable_entity }
-      end
+    if @role.update(role_params)
+      render json: @role
+    else
+      render json: @role.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /roles/1
-  # DELETE /roles/1.json
   def destroy
     @role.destroy
-    respond_to do |format|
-      format.html { redirect_to roles_url, notice: 'Role was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -68,7 +44,7 @@ class RolesController < ApplicationController
       @role = Role.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Only allow a trusted parameter "white list" through.
     def role_params
       params.require(:role).permit(:nombre_rol, :descripcion_rol)
     end
