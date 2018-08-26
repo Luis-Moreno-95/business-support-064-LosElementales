@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_25_015226) do
+ActiveRecord::Schema.define(version: 2018_08_26_022147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clasifications", force: :cascade do |t|
+    t.string "descripcion_clasificacion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "nombre_rol"
+    t.string "descripcion_rol"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "descripcion_estado"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "nickname"
@@ -25,6 +44,9 @@ ActiveRecord::Schema.define(version: 2018_08_25_015226) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "status_id"
+    t.index ["status_id"], name: "index_users_on_status_id"
   end
 
+  add_foreign_key "users", "statuses"
 end
