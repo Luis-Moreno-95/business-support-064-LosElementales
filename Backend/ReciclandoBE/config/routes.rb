@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :contents
+  resources :questions
   resources :clasifications
   resources :roles
   resources :statuses
