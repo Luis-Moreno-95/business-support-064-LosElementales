@@ -26,6 +26,8 @@ temp/
 platforms/
 plugins/
 plugins/android.json
+package-lock.json
+package.json
 plugins/ios.json
 www/
 $RECYCLE.BIN/
