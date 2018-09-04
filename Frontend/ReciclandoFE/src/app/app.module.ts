@@ -10,7 +10,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpClientModule } from '@angular/common/http';
 
+// Import your AvatarModule
+import { AvatarModule } from 'ngx-avatar';
+import { UserServiceProvider } from '../providers/user-service/user-service';
+ 
 @NgModule({
   declarations: [
     MyApp,
@@ -21,7 +26,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(MyApp),
+    // Specify AvatarModule as an import
+    AvatarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,7 +42,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserServiceProvider
   ]
 })
 export class AppModule {}
