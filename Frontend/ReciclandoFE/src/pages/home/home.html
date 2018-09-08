@@ -5,17 +5,19 @@
 </ion-header>
 
 <ion-content>
-  <div id="Avatar">
-    <ngx-avatar name="{{usuario.nombre_usuario}}"></ngx-avatar>
-    <h3>Hola! {{ usuario.nickname | uppercase }} </h3>
-    <br>
-    <p><b>Tus puntos actuales: </b> {{usuario.puntaje_usuario}}</p>
-  </div>
-  <div id="botonJuego">
-      <button ion-button (click)="start()">Iniciar Juego</button>
-  </div>
-  <div id="botonVideo">
-      <button ion-button (click)="video()">Iniciar Vídeo</button>
-  </div>
-
+ <ion-grid class="info">
+    <ion-row align-items-center>
+      <ion-col align-self-center>
+          <div class="avatar" >
+              <ngx-avatar name="{{usuario.nickname}}" size="100" [round]="true"></ngx-avatar>
+          </div>          
+          <h3>Hola! <br> {{ usuario.nickname | uppercase }} </h3>
+          <br>
+          <p><b>Tus puntos actuales: </b> {{usuario.puntaje_usuario}}</p>
+          <br>
+          <button ion-button (click)="start()">Iniciar Juego</button>
+          <button ion-button (click)="video()">Iniciar Vídeo</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
