@@ -1,3 +1,12 @@
-page-home {
-
+.info
+{
+    text-align: center!important;
+    justify-content: center!important;
+    align-items:center;
+    background: #fff;
+    color: color($colors, primary);
+}
+.avatar{
+    margin-top: 10%;
+    margin-left: 15%;
 }

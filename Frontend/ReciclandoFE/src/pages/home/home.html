@@ -4,14 +4,22 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+ <ion-grid class="info">
+    <ion-row align-items-center>
+      <ion-col align-self-center>
+          <div class="avatar" >
+              <ngx-avatar name="{{usuario.nickname}}" size="100" [round]="true"></ngx-avatar>
+          </div>   
+          <br>
+          <br>       
+          <h3>Hola! <br> {{ usuario.nickname | uppercase }} </h3>
+          <br>
+          <br>
+          <br>
+          <p><b>Tus puntos actuales: </b> {{usuario.puntaje_usuario}}</p>
+          <br>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
