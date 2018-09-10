@@ -17,6 +17,8 @@ import { AvatarModule } from 'ngx-avatar';
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { PlacesMainServiceProvider } from '../providers/places-main-service/places-main-service';
 import { PlacesMainPage } from '../pages/places-main/places-main';
+import { ContentServiceProvider } from '../providers/content-service/content-service';
+
  
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { PlacesMainPage } from '../pages/places-main/places-main';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
-    PlacesMainServiceProvider
+    PlacesMainServiceProvider,
+    ContentServiceProvider
+
   ]
 })
 export class AppModule {}
