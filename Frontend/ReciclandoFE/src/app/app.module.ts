@@ -15,7 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
 // Import your AvatarModule
 import { AvatarModule } from 'ngx-avatar';
 import { UserServiceProvider } from '../providers/user-service/user-service';
+import { PlacesMainServiceProvider } from '../providers/places-main-service/places-main-service';
+import { PlacesMainPage } from '../pages/places-main/places-main';
 import { ContentServiceProvider } from '../providers/content-service/content-service';
+
  
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { ContentServiceProvider } from '../providers/content-service/content-ser
     AboutPage,
     ContactPage,
     HomePage,
+    PlacesMainPage,
     TabsPage
   ],
   imports: [
@@ -38,6 +42,7 @@ import { ContentServiceProvider } from '../providers/content-service/content-ser
     AboutPage,
     ContactPage,
     HomePage,
+    PlacesMainPage,
     TabsPage
   ],
   providers: [
@@ -45,7 +50,9 @@ import { ContentServiceProvider } from '../providers/content-service/content-ser
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
+    PlacesMainServiceProvider,
     ContentServiceProvider
+
   ]
 })
 export class AppModule {}
