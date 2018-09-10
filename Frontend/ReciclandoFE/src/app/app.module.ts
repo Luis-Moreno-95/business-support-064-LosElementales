@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 // Import your AvatarModule
 import { AvatarModule } from 'ngx-avatar';
 import { UserServiceProvider } from '../providers/user-service/user-service';
+import { ContentServiceProvider } from '../providers/content-service/content-service';
  
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserServiceProvider
+    UserServiceProvider,
+    ContentServiceProvider
   ]
 })
 export class AppModule {}
