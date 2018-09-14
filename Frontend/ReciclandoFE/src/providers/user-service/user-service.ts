@@ -24,4 +24,9 @@ export class UserServiceProvider {
     return this.http.get('http://localhost:3000/users/1');
   }
 
+ //Obtener Token
+   getUsuarioAuth(obj){
+    return this.http.post('http://localhost:3000/user_token/' + obj);
+
+  }
 }
