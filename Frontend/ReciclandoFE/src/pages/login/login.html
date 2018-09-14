@@ -3,12 +3,12 @@
   <ion-title>Reciclando</ion-title>
   <ion-list>
     <ion-item>
-      <ion-input placeholder="Username"></ion-input>
+      <ion-input placeholder="username" #username></ion-input>
     </ion-item>
     <ion-item>
-        <ion-input placeholder="password" type="password"></ion-input>
+        <ion-input placeholder="password" type="password" #password></ion-input>
       </ion-item>
   </ion-list>
 
-  <button ion-button full>Log In</button>
-</ion-content> 
+  <button ion-button full (click)="signIn()">Log In</button>
+</ion-content>

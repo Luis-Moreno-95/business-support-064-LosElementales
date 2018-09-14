@@ -20,13 +20,13 @@ import { PlacesMainServiceProvider } from '../providers/places-main-service/plac
 import { PlacesMainPage } from '../pages/places-main/places-main';
 import { ContentServiceProvider } from '../providers/content-service/content-service';
 
- 
+
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     ContactPage,
-    HomePage,
+    HomePage, 
     PlacesMainPage,
     TabsPage,
     LoginPage
