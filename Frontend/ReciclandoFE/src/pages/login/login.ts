@@ -1,8 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { UserServiceProvider } from '../../providers/user-service/user-service';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the LoginPage page.
@@ -43,6 +42,7 @@ export class LoginPage {
     .subscribe(data => {
         this.token = data;
         console.log(this.token);
+        this.navCtrl.push(TabsPage);
         }, error => {
             console.log(JSON.stringify(error.json()));
         });
