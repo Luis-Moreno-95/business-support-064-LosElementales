@@ -1,7 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Videos
+      <ion-grid>
+          <ion-row>
+            <ion-col col-10>
+                Videos
+            </ion-col>
+            <ion-col col-2 class="logo">
+              <ngx-avatar name="{{usuario.nickname}}" size="30" [round]="true"></ngx-avatar>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,9 +19,7 @@
   <ion-grid class="info">
      <ion-row align-items-center>
         <ion-col align-self-center>
-          <div class="avatar" >
-            <ngx-avatar name="{{usuario.nickname}}" size="50" [round]="true"></ngx-avatar>
-          </div>
+          
           <br>
           <h3>{{contenido.nombre_contenido}}</h3>
           <br>

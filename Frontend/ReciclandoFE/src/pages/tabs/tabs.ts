@@ -4,7 +4,6 @@ import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
 import { PlacesMainPage } from '../places-main/places-main';
-import { LoginPage } from '../login/login';
 
 
 
@@ -14,7 +13,6 @@ import { LoginPage } from '../login/login';
 })
 export class TabsPage {
 
-  tab5Root = LoginPage;
   tab1Root = HomePage;
   tab2Root = AboutPage;
   tab3Root = ContactPage;
