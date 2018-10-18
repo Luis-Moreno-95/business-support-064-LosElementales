@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +12,8 @@ export class HomePage {
   usuario: any = [];
   constructor(
     public navCtrl: NavController,
-     public UserServiceProvider : UserServiceProvider) {
+    public UserServiceProvider : UserServiceProvider, 
+    private storage: Storage) {
 
   }
 
@@ -21,6 +23,7 @@ export class HomePage {
       (data) => {
         this.usuario = data;
         console.log(this.usuario);
+        this.storage.set('puntaje_usuario', this.usuario.puntaje_usuario );
       },
       (error) =>{
         console.error(error);

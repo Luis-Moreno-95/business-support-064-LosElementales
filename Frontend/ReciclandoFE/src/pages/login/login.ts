@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { TabsPage } from '../tabs/tabs';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the LoginPage page.
@@ -21,8 +22,9 @@ export class LoginPage {
   @ViewChild('password') password;
 
   token: any = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, private storage: Storage) {
   }
+  
 
   ionViewDidLoad() {
 
@@ -41,7 +43,8 @@ export class LoginPage {
     new RequestOptions({ headers: headers }))
     .subscribe(data => {
         this.token = data;
-        console.log(this.token);
+        console.log(this.token._body);
+        this.storage.set('nickname', this.username.value );        
         this.navCtrl.push(TabsPage);
         }, error => {
             console.log(JSON.stringify(error.json()));

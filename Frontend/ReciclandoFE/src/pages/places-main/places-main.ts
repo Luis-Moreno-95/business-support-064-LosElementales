@@ -38,6 +38,7 @@ export class PlacesMainPage {
 
   itemClicked(item):void{
     console.log(item);
+    this.navCtrl.push('PlacesDetailPage', item);
   }
 
 }
