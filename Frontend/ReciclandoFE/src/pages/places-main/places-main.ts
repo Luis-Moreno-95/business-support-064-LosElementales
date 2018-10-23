@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PlacesMainServiceProvider } from '../../providers/places-main-service/places-main-service';
+import { UserServiceProvider } from '../../providers/user-service/user-service';
 
 /**
  * Generated class for the PlacesMainPage page.
@@ -17,8 +18,12 @@ import { PlacesMainServiceProvider } from '../../providers/places-main-service/p
 export class PlacesMainPage {
 
   places: any;
+  user:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public PlacesMainServiceProvider: PlacesMainServiceProvider) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public PlacesMainServiceProvider: PlacesMainServiceProvider,
+    public UserServiceProvider: UserServiceProvider) {
   }
 
   ionViewDidLoad() {
@@ -39,6 +44,18 @@ export class PlacesMainPage {
   itemClicked(item):void{
     console.log(item);
     this.navCtrl.push('PlacesDetailPage', item);
+    
+    this.UserServiceProvider.getUserByID('1')
+    .subscribe(
+      (data)=>{
+        this.user = data;
+        console.log('UsuarioObtenido con mètodo:',this.user);
+      },
+      (error)=>{
+        console.error(error);
+      }
+    );
+
   }
 
 }

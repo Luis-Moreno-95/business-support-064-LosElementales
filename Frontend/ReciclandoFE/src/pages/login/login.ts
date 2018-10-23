@@ -44,6 +44,7 @@ export class LoginPage {
     .subscribe(data => {
         this.token = data;
         console.log(this.token._body);
+        console.log(this.token);
         this.storage.set('nickname', this.username.value );        
         this.navCtrl.push(TabsPage);
         }, error => {

@@ -10,6 +10,7 @@ import { Storage } from '@ionic/storage';
 export class HomePage {
 
   usuario: any = [];
+  nickName: string;
   constructor(
     public navCtrl: NavController,
     public UserServiceProvider : UserServiceProvider, 
@@ -18,6 +19,10 @@ export class HomePage {
   }
 
   ionViewDidLoad(){
+    this.storage.get('nickname').then((val)=>{
+      console.log('el nickname', val);
+      this.nickName = val;
+    });
     this.UserServiceProvider.getUsuarioPorId()
     .subscribe(
       (data) => {
