@@ -44,18 +44,6 @@ export class PlacesMainPage {
   itemClicked(item):void{
     console.log(item);
     this.navCtrl.push('PlacesDetailPage', item);
-    
-    this.UserServiceProvider.getUserByID('1')
-    .subscribe(
-      (data)=>{
-        this.user = data;
-        console.log('UsuarioObtenido con mètodo:',this.user);
-      },
-      (error)=>{
-        console.error(error);
-      }
-    );
-
   }
 
 }
