@@ -36,9 +36,9 @@ export class LoginPage {
   }
 
   signIn(){
-    console.log(this.username.value, this.password.value);
+    
     //Agregamos username y password a un arreglo
-    var user ={"auth":{'nickname':this.username.value,'password':this.password.value}};
+    var user ={"auth":{'nickname':this.username.value,'password':this.password.value}};    
 
     let headerOptions: any = { 'Content-Type': 'application/json' };
     let headers = new Headers(headerOptions);
@@ -48,8 +48,8 @@ export class LoginPage {
     new RequestOptions({ headers: headers }))
     .subscribe(data => {
         this.token = data;
-        console.log(this.token._body);
-        console.log(this.token);
+
+        this.storage.set('userData', this.token._body);
         this.storage.set('nickname', user.auth.nickname);        
         this.navCtrl.push(TabsPage, {usuario:this.username});
         }, error => {
