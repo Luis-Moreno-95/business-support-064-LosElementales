@@ -1,8 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { TabsPage } from '../tabs/tabs';
 import { Storage } from '@ionic/storage';
+
 
 /**
  * Generated class for the LoginPage page.
@@ -13,7 +14,7 @@ import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
-  selector: 'page-login',
+  selector: 'q',
   templateUrl: 'login.html',
 })
 export class LoginPage {
@@ -22,7 +23,11 @@ export class LoginPage {
   @ViewChild('password') password;
 
   token: any = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, private storage: Storage) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams, 
+    public http: Http, 
+    private storage: Storage,
+    private alertCtrl: AlertController) {
   }
   
 
@@ -45,10 +50,20 @@ export class LoginPage {
         this.token = data;
         console.log(this.token._body);
         console.log(this.token);
-        this.storage.set('nickname', this.username.value );        
-        this.navCtrl.push(TabsPage);
+        this.storage.set('nickname', user.auth.nickname);        
+        this.navCtrl.push(TabsPage, {usuario:this.username});
         }, error => {
-            console.log(JSON.stringify(error.json()));
+          this.presentAlert();
+            //console.log(JSON.stringify(error.json()));
         });
+  }
+
+  presentAlert(){
+    let alert = this.alertCtrl.create({
+      title: 'Usuario o clave erradas',
+      subTitle: 'Por favor verifique los datos ingresados',
+      buttons: ['Aceptar']
+    });
+    alert.present(); 
   }
 }

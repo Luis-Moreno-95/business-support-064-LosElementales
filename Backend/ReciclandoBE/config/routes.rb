@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :statuses
   post 'user_token' => 'user_token#create'
   resources :users
-  get 'users' => 'users#find_by_nickname'
+  #Rutas personalizadas para Usuarios
+  get '/users/nickname/:nickname', to: 'users#get_by_nickname', as: 'user_nickname'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
