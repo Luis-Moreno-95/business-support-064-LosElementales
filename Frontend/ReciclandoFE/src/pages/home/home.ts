@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, App } from 'ionic-angular';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 import { Storage } from '@ionic/storage';
 import { ThrowStmt } from '@angular/compiler';
@@ -12,17 +12,24 @@ export class HomePage {
 
   usuario: any = [];
   nickname : string;
+  public userDetails: any;
+
   constructor(
     public navCtrl: NavController,
     public UserServiceProvider : UserServiceProvider, 
     private storage: Storage,
     private navParams: NavParams,
-    ) {
-      //this.user = this.navParams.data;
+    public app: App
+    ) {     
 
   }
 
   ionViewDidLoad(){
+
+    this.storage.get('userData').then((val) => {
+      this.userDetails = val;
+      console.log('userDetails from home', this.userDetails);
+    } );    
     
     this.storage.get('nickname').then((val) => {
       console.log('Your nickname is: ', val);
@@ -43,6 +50,8 @@ export class HomePage {
   }
   logout(){
     console.log('Se cerró la sesión');
-    this.storage.clear();  
+    this.storage.clear();
+    const root = this.app.getRootNav();
+    root.popToRoot();
   }
 }
