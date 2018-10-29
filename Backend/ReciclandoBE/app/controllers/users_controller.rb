@@ -14,6 +14,12 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  #GET /users/nickname/nickname
+  def get_by_nickname
+    @user = User.find_by_nickname(params[:nickname])
+    render json: @user
+  end
+
   # POST /users
   def create
     @user = User.new(user_params)

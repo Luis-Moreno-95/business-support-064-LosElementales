@@ -19,6 +19,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
 import { PlacesMainServiceProvider } from '../providers/places-main-service/places-main-service';
 import { PlacesMainPage } from '../pages/places-main/places-main';
 import { ContentServiceProvider } from '../providers/content-service/content-service';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ContentServiceProvider } from '../providers/content-service/content-ser
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     // Specify AvatarModule as an import
-    AvatarModule
+    AvatarModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
