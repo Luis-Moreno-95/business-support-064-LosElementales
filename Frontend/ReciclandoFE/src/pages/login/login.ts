@@ -22,7 +22,9 @@ export class LoginPage {
   @ViewChild('username') username;
   @ViewChild('password') password;
 
-  token: any = [];
+  public token: any = [];
+  public theToken: any;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
     public http: Http, 
@@ -49,9 +51,11 @@ export class LoginPage {
     .subscribe(data => {
         this.token = data;
 
-        this.storage.set('userData', this.token._body);
         this.storage.set('nickname', user.auth.nickname);        
         this.navCtrl.push(TabsPage, {usuario:this.username});
+        this.theToken = this.token.json();
+        this.storage.set('token',this.theToken.jwt);
+
         }, error => {
           this.presentAlert();
             //console.log(JSON.stringify(error.json()));
