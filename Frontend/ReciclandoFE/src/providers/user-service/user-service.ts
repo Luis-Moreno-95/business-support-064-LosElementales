@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 
 /*
@@ -11,7 +12,11 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UserServiceProvider {
 
-  constructor(public http: HttpClient) {
+  public token:any;
+  response:any;
+
+  constructor(public http: Http,
+    public storage: Storage) {
     console.log('Hello UserServiceProvider Provider');
   }
 
@@ -34,9 +39,24 @@ export class UserServiceProvider {
   }
  //Obtener usuario con el NickName
   getUserByNickname(nickname){
+ 
+
+    //load Token if exists
+    this.storage.get('token').then((value)=>{
+      this.token = value;
+      console.log('user token: ', this.token);      
+    });
+
+          
+    let headerOptions: any = { 'Content-Type': 'application/json' };
+    let headers = new Headers(headerOptions);   
+
+    headers.append('Authorization', this.token);
     var url = 'http://localhost:3000/users/nickname/' + encodeURI(nickname);
-    var response = this.http.get(url);    
+    var response = this.http.get(url, {headers:headers});  
+    console.log('Response is: ', this.response);
     return response;
+    
   }
 
 }

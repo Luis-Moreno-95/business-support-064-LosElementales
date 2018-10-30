@@ -41,6 +41,7 @@ export class HomePage {
           this.usuario = data;
           console.log(this.usuario);
           this.storage.set('puntaje_usuario', this.usuario.puntaje_usuario );
+          console.log('pasó por el getUsersByNickName');
         },
         (error) =>{
           console.error(error);
