@@ -26,21 +26,21 @@ export class LoginPage {
   public theToken: any;
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams, 
-    public http: Http, 
+    public navParams: NavParams,
+    public http: Http,
     private storage: Storage,
     private alertCtrl: AlertController) {
   }
-  
+
 
   ionViewDidLoad() {
 
   }
 
   signIn(){
-    
+
     //Agregamos username y password a un arreglo
-    var user ={"auth":{'nickname':this.username.value,'password':this.password.value}};    
+    var user ={"auth":{'nickname':this.username.value,'password':this.password.value}};
 
     let headerOptions: any = { 'Content-Type': 'application/json' };
     let headers = new Headers(headerOptions);
@@ -50,12 +50,12 @@ export class LoginPage {
     new RequestOptions({ headers: headers }))
     .subscribe(data => {
         this.token = data;
-
-        this.storage.set('nickname', user.auth.nickname);        
-        this.navCtrl.push(TabsPage, {usuario:this.username});
         this.theToken = this.token.json();
         this.storage.set('token',this.theToken.jwt);
-
+        this.storage.set('nickname', user.auth.nickname);
+        this.navCtrl.push(TabsPage, {usuario:this.username});
+        this.username.value = "";
+        this.password.value = "";
         }, error => {
           this.presentAlert();
             //console.log(JSON.stringify(error.json()));
@@ -68,6 +68,6 @@ export class LoginPage {
       subTitle: 'Por favor verifique los datos ingresados',
       buttons: ['Aceptar']
     });
-    alert.present(); 
+    alert.present();
   }
 }

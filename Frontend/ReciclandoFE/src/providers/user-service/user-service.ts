@@ -39,24 +39,20 @@ export class UserServiceProvider {
   }
  //Obtener usuario con el NickName
   getUserByNickname(nickname){
- 
-
     //load Token if exists
-    this.storage.get('token').then((value)=>{
+    this.token = this.storage.get('token').then((value)=>{
       this.token = value;
-      console.log('user token: ', this.token);      
     });
 
-          
     let headerOptions: any = { 'Content-Type': 'application/json' };
-    let headers = new Headers(headerOptions);   
-
+    let headers = new Headers(headerOptions);
+    console.log('user token provider: ', this.token);
     headers.append('Authorization', this.token);
     var url = 'http://localhost:3000/users/nickname/' + encodeURI(nickname);
-    var response = this.http.get(url, {headers:headers});  
+    var response = this.http.get(url, {headers:headers});
     console.log('Response is: ', this.response);
     return response;
-    
+
   }
 
 }

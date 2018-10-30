@@ -12,25 +12,27 @@ export class HomePage {
 
   usuario: any = [];
   nickname : string;
-  public userDetails: any;
+  public token: any;
 
   constructor(
     public navCtrl: NavController,
-    public UserServiceProvider : UserServiceProvider, 
+    public UserServiceProvider : UserServiceProvider,
     private storage: Storage,
     private navParams: NavParams,
     public app: App
-    ) {     
+    ) {
 
   }
 
   ionViewDidLoad(){
 
-    this.storage.get('userData').then((val) => {
-      this.userDetails = val;
-      console.log('userDetails from home', this.userDetails);
-    } );    
-    
+    this.storage.get('token').then((val) => {
+      this.token = val;
+      console.log('token from login', this.token);
+    } );
+
+    console.log(this.token);
+
     this.storage.get('nickname').then((val) => {
       console.log('Your nickname is: ', val);
       this.nickname = val;
@@ -38,7 +40,7 @@ export class HomePage {
       this.UserServiceProvider.getUserByNickname(this.nickname)
       .subscribe(
         (data) => {
-          this.usuario = data;
+          this.usuario = data.json();
           console.log(this.usuario);
           this.storage.set('puntaje_usuario', this.usuario.puntaje_usuario );
           console.log('pasó por el getUsersByNickName');
