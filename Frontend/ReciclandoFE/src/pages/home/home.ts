@@ -27,30 +27,27 @@ export class HomePage {
   ionViewDidLoad(){
 
     this.storage.get('token').then((val) => {
-      this.token = val;
-      console.log('token from login', this.token);
+      this.token = val;     
+
+      this.storage.get('nickname').then((val) => {     
+        this.nickname = val;
+          
+        this.UserServiceProvider.getUserByNickname(this.nickname, this.token)
+        .subscribe(
+          (data) => {
+            this.usuario = data.json();           
+            this.storage.set('puntaje_usuario', this.usuario.puntaje_usuario );
+            
+          },
+          (error) =>{
+            console.error(error);
+          }
+        )
+      });
+
     } );
-
-    console.log(this.token);
-
-    this.storage.get('nickname').then((val) => {
-      console.log('Your nickname is: ', val);
-      this.nickname = val;
-
-      this.UserServiceProvider.getUserByNickname(this.nickname)
-      .subscribe(
-        (data) => {
-          this.usuario = data.json();
-          console.log(this.usuario);
-          this.storage.set('puntaje_usuario', this.usuario.puntaje_usuario );
-          console.log('pasó por el getUsersByNickName');
-        },
-        (error) =>{
-          console.error(error);
-        }
-      )
-    });
   }
+
   logout(){
     console.log('Se cerró la sesión');
     this.storage.clear();

@@ -12,12 +12,12 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UserServiceProvider {
 
-  public token:any;
-  response:any;
+  response: any;
+  headers:Headers;
 
   constructor(public http: Http,
     public storage: Storage) {
-    console.log('Hello UserServiceProvider Provider');
+  
   }
 
   //Obtener usuarios
@@ -34,25 +34,17 @@ export class UserServiceProvider {
   getUserByID(id) {
     var url = 'http://localhost:3000/users/' + encodeURI(id);
     var response = this.http.get(url);
-    console.log('el response: ', response);
     return response;
   }
- //Obtener usuario con el NickName
-  getUserByNickname(nickname){
-    //load Token if exists
-    this.token = this.storage.get('token').then((value)=>{
-      this.token = value;
-    });
-
+  //Obtener usuario con el NickName
+  getUserByNickname(nickname, token) {
+ 
     let headerOptions: any = { 'Content-Type': 'application/json' };
     let headers = new Headers(headerOptions);
-    console.log('user token provider: ', this.token);
-    headers.append('Authorization', this.token);
+    headers.append('Authorization', token);
     var url = 'http://localhost:3000/users/nickname/' + encodeURI(nickname);
-    var response = this.http.get(url, {headers:headers});
-    console.log('Response is: ', this.response);
+    var response = this.http.get(url, { headers: headers });  
     return response;
-
   }
 
 }

@@ -21,6 +21,7 @@ export class PlacesMainPage {
   places: any;
   user:any;
   nickname: any;
+  userToken: any;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -50,19 +51,25 @@ export class PlacesMainPage {
   }
 
   itemClicked(item):void{
-    console.log(item);
+ 
     this.navCtrl.push('PlacesDetailPage', item);
 
-    this.UserServiceProvider.getUserByNickname(this.nickname)
-    .subscribe(
-      (data)=>{
-        this.user = data;
-        console.log('El usuario con Nickname', this.user);
-      },
-      (error)=>{
-        console.log(error);
-      }
-    );
+    this.storage.get('token').then((val)=>{
+      this.userToken = val;
+
+      this.UserServiceProvider.getUserByNickname(this.nickname, this.userToken)
+      .subscribe(
+        (data)=>{
+          this.user = data;         
+        },
+        (error)=>{
+          console.log(error);
+        }
+      );
+
+    });
+
+
   }
 
 }
