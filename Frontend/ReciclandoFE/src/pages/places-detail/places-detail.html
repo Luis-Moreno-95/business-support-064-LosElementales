@@ -26,6 +26,14 @@
               </ion-col>
             </ion-row>
             <ion-row>
+              <ion-col>
+                <p>{{placeInfo.descripcion_lugar}}.</p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <p>Encuentranos en la dirección: {{placeInfo.direccion_lugar}}.</p>
+              </ion-col>
             </ion-row>
           </ion-card-content>
         </ion-card>
@@ -33,10 +41,35 @@
     </ion-row>
     <ion-row>
       <ion-col col-6>
-        <label for="" style="padding-left: 20px;">Nombre:</label>
+        <ion-label for="" style="padding-left: 20px;">Puntos por boleta: </ion-label>
       </ion-col>
       <ion-col col-6>
-          <button>test</button>
+        <ion-chip>
+          <ion-icon name="pin"></ion-icon>
+          <ion-label>{{puntosBoleta}}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-label for="" style="padding-left: 20px;">Tus puntos: </ion-label>
+      </ion-col>
+      <ion-col col-6>
+        <ion-chip>
+          <ion-icon name="pin"></ion-icon>
+          <ion-label >{{puntosUsuario}}</ion-label>
+        </ion-chip>
+      </ion-col>
+      <ion-col col-12>
+        <ion-list>
+            <ion-item>
+                <ion-label id="singleValue4">Elije la cantidad de boletas</ion-label>
+                <ion-range min="1" max="10" step="1" snaps="true" color="secondary" [(ngModel)]="singleValue4" (ionChange)="calculateTicketRedemption()"></ion-range>
+              </ion-item>
+              <ion-item>
+                <ion-label>Cantidad:{{singleValue4}}</ion-label>
+              </ion-item>
+        </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>

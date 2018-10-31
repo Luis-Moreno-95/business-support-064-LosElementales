@@ -1,4 +1,4 @@
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
@@ -38,7 +38,7 @@ export class UserServiceProvider {
   }
   //Obtener usuario con el NickName
   getUserByNickname(nickname, token) {
- 
+
     let headerOptions: any = { 'Content-Type': 'application/json' };
     let headers = new Headers(headerOptions);
     headers.append('Authorization', token);
