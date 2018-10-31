@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, App } from 'ionic-angular';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 import { Storage } from '@ionic/storage';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'page-home',
@@ -24,7 +23,7 @@ export class HomePage {
 
   }
 
-  ionViewDidLoad(){
+  ionViewWillEnter(){
 
     this.storage.get('token').then((val) => {
       this.token = val;     
