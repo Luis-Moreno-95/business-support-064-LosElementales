@@ -1,0 +1,6 @@
+Library/
+obj/
+Assembly-CSharp.csproj
+Packages/
+Juego 2D.sln
+.vscode
